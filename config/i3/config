@@ -173,7 +173,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 #    status_command i3status
-    status_command ~/.config/i3/bumblebee-status/bumblebee-status -m xrandr cpu disk:root memory date time battery pasink spotify -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+    status_command ~/.config/i3/bumblebee-status/bumblebee-status -m xrandr cpu disk:root memory date time battery pasink arch-update spotify -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 }
 
 # rofi config
@@ -198,3 +198,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Resize window
+bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
