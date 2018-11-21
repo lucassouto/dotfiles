@@ -38,3 +38,5 @@ color14 = #23edda
 color7  = #ababab
 color15 = #f9f9f9
 
+#[options]
+font = Source Code Pro for Powerline 14
