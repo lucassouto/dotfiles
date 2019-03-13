@@ -1,0 +1,86 @@
+" Comment the following line if you don't want Vim and NeoVim to share the
+" same plugin download directory.
+let g:spacevim_plug_home = '~/.vim/plugged'
+
+" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
+" let g:spacevim_leader = "<\Space>"
+
+" Uncomment the following line to override the local leader key. The default value is comma ','.
+" let g:spacevim_localleader = ','
+
+" Enable the existing layers in space-vim.
+" Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
+let g:spacevim_layers = [
+      \ 'fzf', 'better-defaults', 'which-key',
+      \ ]
+
+" Uncomment the following line if your terminal(-emulator) supports true colors.
+" let g:spacevim_enable_true_color = 1
+
+" If you want to have more control over the layer, try using Layer command.
+" if g:spacevim.gui
+"   Layer 'airline'
+" endif
+
+" Manage your own plugins.
+" Refer to https://github.com/junegunn/vim-plug for more detials.
+function! UserInit()
+  " Add your own plugin via Plug command.
+
+  Plug 'junegunn/seoul256.vim'
+  Plug 'davidhalter/jedi-vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'w0rp/ale'
+  Plug 'scrooloose/syntastic'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'Valloric/YouCompleteMe'
+endfunction
+
+" Override the default settings from space-vim as well as adding extras
+function! UserConfig()
+
+  " Override the default settings.
+  " Uncomment the following line to disable relative number.
+  " set norelativenumber
+
+  " Adding extras.
+  " Uncomment the following line If you have installed the powerline fonts.
+  " It is good for airline layer.
+  " let g:airline_powerline_fonts = 1
+
+  " NERDTree
+  map <C-n> :NERDTreeToggle<CR>
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  let NERDTreeShowHidden=0
+ 
+  " Recommended settings Syntastic (Plugin check code python)
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+ 
+
+  " Point YCM to the Pipenv created virtualenv, if possible
+  " At first, get the output of 'pipenv --venv' command.
+  let pipenv_venv_path = system('pipenv --venv')
+  " The above system() call produces a non zero exit code whenever
+  " a proper virtual environment has not been found.
+  " So, second, we only point YCM to the virtual environment when
+  " the call to 'pipenv --venv' was successful.
+  " Remember, that 'pipenv --venv' only points to the root directory
+  " of the virtual environment, so we have to append a full path to
+  " the python executable.
+  if shell_error == 0
+    let venv_path = substitute(pipenv_venv_path, '\n', '', '')
+    let g:ycm_python_binary_path = venv_path . '/bin/python'
+  else
+    let g:ycm_python_binary_path = 'python'
+  endif
+
+  " Buffers
+  map bn :bn<cr>
+  map bp :bp<cr>
+  map bd :bd<cr> 
+endfunction
+
+      
