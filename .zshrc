@@ -108,6 +108,9 @@ alias zedit="vim $HOME/.zshrc"
 
 alias copyterm="xclip -selection clipboard"
 
+alias codemed-start="sc-start openvpn-client@codemed-udp-1194"
+alias codemed-stop="sc-stop openvpn-client@codemed-udp-1194"
+alias codemed-status="sc-status openvpn-client@codemed-udp-1194"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -116,4 +119,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Set editor to tmuxinator
+export EDITOR=vim
 
+# Quote of the day
+fortune | cowsay -f tux
+# Add docker cow ---> wget --no-check-certificate -O docker.cow https://git.io/vpOr5 &> /dev/null
