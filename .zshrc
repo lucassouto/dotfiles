@@ -62,6 +62,7 @@ plugins=(
   git
   systemd
   zsh-syntax-highlighting
+  npm
 )
 
 source $ZSH/oh-my-zsh.sh
