@@ -2,6 +2,12 @@
 " same plugin download directory.
 let g:spacevim_plug_home = '~/.vim/plugged'
 
+" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
+" let g:spacevim_leader = "<\Space>"
+
+" Uncomment the following line to override the local leader key. The default value is comma ','.
+" let g:spacevim_localleader = ','
+
 " Enable the existing layers in space-vim.
 " Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
@@ -15,11 +21,13 @@ function! UserInit()
   Plug 'scrooloose/nerdtree'
   Plug 'airblade/vim-gitgutter'
   Plug 'w0rp/ale'
+  Plug 'slashmili/alchemist.vim'
 endfunction
 
 " Override the default settings from space-vim as well as adding extras
 function! UserConfig()
   let g:airline_powerline_fonts = 1
+
 
   " NERDTree
   map <C-n> :NERDTreeToggle<CR>
