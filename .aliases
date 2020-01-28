@@ -1,0 +1,11 @@
+[[ -f ~/.aliases.private ]] && source ~/.aliases.private
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+alias rpane="read nome && printf '\033]2;%s\033\\' $nome"
+
+alias ubuntu-update="sudo apt-get update -y && sudo apt-get upgrade -y"
